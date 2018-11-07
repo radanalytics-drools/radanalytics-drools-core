@@ -1,4 +1,4 @@
-package io.radanalytics.drools.model;
+package io.radanalytics.tutorial.drools.rule.model;
 
 import java.io.Serializable;
 
