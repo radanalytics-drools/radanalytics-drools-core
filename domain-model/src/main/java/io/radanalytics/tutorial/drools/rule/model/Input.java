@@ -6,13 +6,23 @@ public class Input implements Serializable {
 
     private static final long serialVersionUID = -5513863267614235282L;
     private final String val;
+    private boolean valid;
 
     public Input( String val ) {
         this.val = val;
+        this.valid = false;
     }
 
     public String getVal() {
         return val;
+    }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid( boolean valid ) {
+        this.valid = valid;
     }
 
     @Override
@@ -20,6 +30,7 @@ public class Input implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ( ( val == null ) ? 0 : val.hashCode() );
+        result = prime * result + ( valid ? 1231 : 1237 );
         return result;
     }
 
@@ -32,12 +43,13 @@ public class Input implements Serializable {
         if ( val == null ) {
             if ( other.val != null ) return false;
         } else if ( !val.equals( other.val ) ) return false;
+        if ( valid != other.valid ) return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Input [val=" + val + "]";
+        return "Input [val=" + val + ", valid=" + valid + "]";
     }
 
 }
